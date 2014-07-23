@@ -214,7 +214,7 @@ int globalmem_init(void)
 
 	memset(globalmem_devp, 0, NOD_CNT * sizeof(struct globalmem_dev));
 
-	for (i = 0, i < NOD_CNT, i++)
+	for (i = 0; i < NOD_CNT; i++)
 	{
 		globalmem_setup_cdev(&globalmem_devp[i], i);
 		sema_init(&globalmem_devp[i].sem, 1);
@@ -232,7 +232,7 @@ fail_malloc:
 void globalmem_exit(void)
 {
 	int i;
-	for (i = 0; i < NOD_CNT, i++)
+	for (i = 0; i < NOD_CNT; i++)
 		cdev_del(&(globalmem_devp[i].cdev));
 	kfree(globalmem_devp);
 	unregister_chrdev_region(MKDEV(globalmem_major, 0), NOD_CNT);
