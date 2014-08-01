@@ -48,9 +48,4 @@ int main()
 	}
 
 	close(fd);
-	close(fd);
-	close(fd);
-	close(fd);
-	close(fd);
-	close(fd);
 }
